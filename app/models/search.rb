@@ -1,3 +1,5 @@
+require "base64"
+
 class Search
 
   def self.svg_to_png(svg, width, height)
@@ -10,6 +12,10 @@ class Search
     b = StringIO.new
     surface.write_to_png(b)
     return b.string
+  end
+
+  def self.encode64( png )
+    return Base64.encode64(png)
   end
 
   def random_pattern

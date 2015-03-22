@@ -1,9 +1,11 @@
 <h1>Hello</h1>
 
-<%# svg = Search.new.seeded_pattern("Goat").to_svg %>
-<!-- <p><%#= Search.svg_to_png(svg,150,150).to_s %>"></p> -->
+<% svg = Search.new.seeded_pattern("Goat").to_svg %>
+<p><% png = Search.svg_to_png(svg,150,150) %></p>
+<% encoded = Search.encode64(png) %>
 
-<%#= Search.svg_to_png(svg,150,150).to_data_uri %>">
+<img width="64" height="69" alt="Treehouse Logo" src="data:image/png;base64,<%= encoded %>">
+<%#= Search.svg_to_png(svg,150,150).to_data_uri %>
 
 <div style="background-image: <%= Search.new.seeded_pattern("Yodel").to_data_uri %>"><h1>Seeded with: Yodel</h2></div>
 <div style="background-image: <%= Search.new.seeded_pattern("Yodel").to_data_uri %>"><h1>Seeded with: Yodel</h2></div>
