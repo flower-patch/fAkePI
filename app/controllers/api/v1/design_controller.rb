@@ -22,7 +22,7 @@ class Api::V1::DesignController < ApplicationController
       end
     end
 
-    render json: { results: result_array }
+    render json: { results: [ {results: result_array} ] }
 
   end
   # design/search?availability=for_sale&substrate=fabric&color1=#{color1}
