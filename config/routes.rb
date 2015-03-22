@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'dummy/test'
+  get 'dummy/png'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

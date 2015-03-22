@@ -10,4 +10,9 @@ class Api::V1::SearchesController < ApplicationController
     render json: { links: "these are some links" }
   end
 
+  def
+
+  end
+  # design/search?availability=for_sale&substrate=fabric&color1=#{color1}
+
 end
