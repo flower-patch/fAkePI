@@ -1,10 +1,28 @@
 class Api::V1::DesignController < ApplicationController
 
+  # default: return 10 results
   def search
+    default_width = 150
+    default_height = 150
+    result_array = []
+
     if params[:color1]
+      10.times do |i|
+        data_uri = Search.new.random_uri_with_color_and_resolution( params[:color1], default_width, default_height )
+        result_array << { id: i*1000,
+                          thumbnail_url: "data:image/png;base64,#{data_uri}" }
+      end
     end
 
     if params[:q]
+      10.times do |i|
+        data_uri = Search.new.random_uri_with_seed_and_resolution( params[:q], default_width, default_height )
+        result_array << { id: i*1000,
+                          thumbnail_url: "data:image/png;base64,#{data_uri}" }
+      end
+    end
+
+    render json: { results: result_array }
 
   end
   # design/search?availability=for_sale&substrate=fabric&color1=#{color1}
