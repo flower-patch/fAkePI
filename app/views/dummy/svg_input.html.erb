@@ -1,0 +1,56 @@
+<p>Hello</p>
+
+<canvas id="c" width="600" height="600"></canvas>
+
+<script>
+(function() {
+  // create a wrapper around native canvas element (with id="c")
+  var canvas = new fabric.Canvas('c');
+
+  // create a rectangle object
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    fill: 'red',
+    width: 20,
+    height: 20
+  });
+
+  // "add" rectangle onto canvas
+  canvas.add(rect);
+
+  // var url ="<%#= @link %>";
+  // fabric.Image.fromURL(url, function(oImg) {
+  // scale image down, and flip it, before adding it onto canvas
+  // oImg.scale(0.5).setFlipX(true);
+  // canvas.add(oImg);
+  // });
+
+  //scaleToHeight(canvas.height-10) for fabricjs.com svg
+  //scaleToHeight(5) for test10.svg
+  var svgString = "<%=@svg%>";
+  var src ="http://fabricjs.com/assets/1.svg";
+  var localSrc = "http://localhost:3000/assets/test_full_resolution.svg";
+  fabric.loadSVGFromURL(localSrc, function (objects, options) {
+    var obj = fabric.util.groupSVGElements(objects, options);
+    obj.scaleToHeight(5)
+      .set({ left: 0, top: 0 })
+      .setCoords();
+
+    canvas.add(obj).renderAll();
+  });
+
+
+
+
+
+})();
+</script>
+
+
+<p>SVG class = <%= @svg.class %></p>
+<%= @svg %>
+<%= @svg.html_safe %>
+
+<%= image_tag "test_full_resolution.svg" %>
+<img src="http://localhost:3000/assets/test_full_resolution.svg">

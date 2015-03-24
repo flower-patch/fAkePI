@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'dummy/test'
   get 'dummy/png'
+  get 'dummy/svg_input'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
