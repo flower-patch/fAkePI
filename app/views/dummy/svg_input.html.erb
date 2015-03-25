@@ -33,7 +33,7 @@
   var localSrc = "http://localhost:3000/assets/test_full_resolution.svg";
   fabric.loadSVGFromURL(localSrc, function (objects, options) {
     var obj = fabric.util.groupSVGElements(objects, options);
-    obj.scaleToHeight(5)
+    obj.scaleToHeight(500)
       .set({ left: 0, top: 0 })
       .setCoords();
 
