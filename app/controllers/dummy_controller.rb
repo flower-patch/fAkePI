@@ -6,6 +6,7 @@ class DummyController < ApplicationController
   def svg_input
     @link = "moo"
     @svg = Search.new.seeded_pattern("Goat").to_svg
+    @local_stored_svg = Search.getXML_for_filename( "test_goat2.svg" )
 
   end
 

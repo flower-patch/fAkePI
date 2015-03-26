@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'searches/list'
       get 'design/search'
+      post 'design/search'
+      get 'design/previewImage/:id' => 'design#previewImage', constraints: {
+        id:       /\d{1,7}/,
+      }
     end
   end
 

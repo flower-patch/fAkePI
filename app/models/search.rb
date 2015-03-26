@@ -4,6 +4,8 @@ class Search
 
   # if you just want to download a png, use this
   # def self.svg_to_png(svg, width, height)
+  #width = width of the svg in px
+  #height = width of the svg in px
   def svg_to_png(svg, width, height)
     svg = RSVG::Handle.new_from_data(svg)
     width   = width  ||=500
@@ -61,5 +63,14 @@ class Search
     return encode64( png )
   end
 
+  def self.getXML_for_filename( filename )
+    xml = ""
+
+    File.open("#{Rails.root}/app/assets/images/#{filename}") do |f|
+      xml += f.read
+    end
+
+    return xml
+  end
 
 end
