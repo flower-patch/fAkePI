@@ -1,11 +1,36 @@
 <h1>Hello</h1>
 
+
+
+<%= link_to "Your Design", {:action => "download_svg" } %>
+
+
 <img width="150" height="150" src="data:image/png;base64,<%= Search.new.random_uri_with_resolution( 150, 150 )
  %>">
 <img width="150" height="150" src="data:image/png;base64,<%= Search.new.random_uri_with_color_and_resolution( "FF0000", 150, 150 )
   %>">
-<img width="150" height="150" src="data:image/png;base64,<%= Search.new.random_uri_with_seed_and_resolution( "goat baby", 150, 150 )
+<img width="500" height="500" src="data:image/png;base64,<%= Search.new.random_uri_with_seed_and_resolution( "goat baby", 450, 450 )
    %>">
+
+
+   <!-- overlapping_circles -->
+   <!-- ca9b00 -->
+   <!-- diamonds -->
+   <!-- 10a1ca -->
+   <!-- squares -->
+   <!-- ce0e0d -->
+   <!-- plus_signs -->
+   <!-- 00d083 -->
+   <!-- overlapping_rings -->
+<!-- 95783a -->
+
+<!-- nested_squares -->
+<!-- 2e5ba1 -->
+
+<!-- mosaic_squares -->
+<!-- 973864 -->
+<div style="background-image: <%= GeoPattern.generate('Mastering Markdown', patterns: :mosaic_squares, color: '#973864').to_data_uri %>;
+  width: 810px; height: 810px"></div>
 
 <div style="background-image: <%= Search.new.seeded_pattern("Yodel").to_data_uri %>"><h1>Seeded with: Yodel</h2></div>
 <div style="background-image: <%= Search.new.seeded_pattern("Yodel").to_data_uri %>"><h1>Seeded with: Yodel</h2></div>

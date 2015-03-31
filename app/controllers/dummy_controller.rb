@@ -6,8 +6,15 @@ class DummyController < ApplicationController
   def svg_input
     @link = "moo"
     @svg = Search.new.seeded_pattern("Goat").to_svg
-    @local_stored_svg = Search.getXML_for_filename( "test_goat2.svg" )
+    @local_stored_svg = Search.getXML_for_filename( "test_goat.svg" )
 
+  end
+
+  def download_svg
+    pattern = GeoPattern.generate('Mastering Markdown', patterns: :sine_waves)
+    # pattern = GeoPattern.generate('Mastering Markdown', color: '#fc0')
+
+    send_data(pattern.to_svg , :filename => 'test.svg', :type=>'image/svg+xml')
   end
 
   # this just downloads the image of an arbitrary svg
